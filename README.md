@@ -1,38 +1,41 @@
-# Urban Infrastructure Sentinel（前端）
+# Urban Infrastructure Sentinel (Frontend)
 
-面向移动端的**城市基础设施巡检** Web 应用：登录、上报问题、地图查看、我的记录与 PWA 离线能力。
+A mobile-oriented **urban infrastructure inspection** web application: login, report issues, map viewing, my records, and PWA offline capabilities.
 
-## 用户使用步骤
+# Backend Repository Address
+https://github.com/hejunbo666666/urban_infrastructure_sentinelApi.git
 
-1. **打开应用**  
-   在浏览器中访问部署地址。未登录时会进入 **Sign in** 页面。
+## User Usage Steps
 
-2. **登录**  
-   输入账号、密码，点击 **Sign in**。登录成功后默认进入 **Report**（上报）页。
+1. **Open the Application**  
+   Access the deployment address in the browser. If not logged in, you will enter the **Sign in** page.
 
-3. **提交一条上报（Report）**  
-   - 填写 **Title**、选择 **Category**、填写 **Description**。  
-   - 点击 **Use GPS location** 获取当前位置（经纬度与地址会显示在下方）。  
-   - 可选：**Take photo** 或 **Choose from gallery** 添加图片（在线时才会上传）。  
-   - 点击 **Submit report** 提交。  
-   - 离线时：无图可排队保存，有图需联网或先去掉图片再提交；恢复网络后会自动尝试同步。
+2. **Login**  
+   Enter your account and password, then click **Sign in**. After successful login, you will default to the **Report** page.
 
-4. **在地图中查看（Map）**  
-   底部点 **Map**，用 **Status** / **Category** 筛选，查看统计与点位；在地图上点击标记，下方 **Selected marker** 会显示摘要。
+3. **Submit a Report**  
+   - Fill in **Title**, select **Category**, and fill in **Description**.  
+   - Click **Use GPS location** to get the current location (latitude, longitude, and address will be displayed below).  
+   - Optional: **Take photo** or **Choose from gallery** to add images (uploaded only when online).  
+   - Click **Submit report** to submit.  
+   - Offline: Reports without images can be queued for saving; reports with images require network connection or remove images before submitting; automatic sync will be attempted when network is restored.
 
-5. **我的（My）**  
-   底部点 **My**，可看到当前账号与 **My reports** 数量；**Sign out** 退出登录。
+4. **View on Map**  
+   Tap **Map** at the bottom, filter by **Status** / **Category**, view statistics and points; click on markers on the map, and the **Selected marker** below will show a summary.
 
-6. **查看与管理记录**  
-   - 在 **My** 中进入 **My reports**，浏览列表。  
-   - **View details** 进入单条详情：可看描述、位置、照片，修改 **Status**（Pending / Processing / Resolved），或 **Delete**。  
-   - 列表中也可用 **Pending / Processing / Resolved** 快速改状态。
+5. **My**  
+   Tap **My** at the bottom to see the current account and **My reports** count; **Sign out** to log out.
 
-7. **安装到主屏幕（可选）**  
-   在 **Report** 页底部可点 **Install to home screen**（需 HTTPS 或 `localhost`；开发环境需在 `build` + `preview` 下测试；iOS 请用 Safari：**分享 → 添加到主屏幕**）。
+6. **View and Manage Records**  
+   - In **My**, enter **My reports** to browse the list.  
+   - **View details** to enter single item details: view description, location, photos, modify **Status** (Pending / Processing / Resolved), or **Delete**.  
+   - In the list, you can also quickly change status with **Pending / Processing / Resolved**.
 
-8. **通知（可选）**  
-   在 **Report** 页可点 **Enable notifications**，按浏览器提示授权（不支持时会提示）。
+7. **Install to Home Screen (Optional)**  
+   At the bottom of the **Report** page, tap **Install to home screen** (requires HTTPS or `localhost`; for development environment, test under `build` + `preview`; for iOS, use Safari: **Share → Add to Home Screen**).
+
+8. **Notifications (Optional)**  
+   On the **Report** page, tap **Enable notifications**, follow browser prompts to authorize (will prompt if not supported).
 
 ---
 
@@ -41,14 +44,14 @@ npm install
 npm run dev
 ```
 
-默认通过 `src/services/api.ts` 中的 `API_BASE_URL` 请求后端；修改接口地址请改该常量后重新构建。
+By default, requests the backend via `API_BASE_URL` in `src/services/api.ts`; to change the API address, modify that constant and rebuild.
 
 ```bash
-npm run build    # 生产构建
-npm run preview  # 本地预览构建结果（适合测 PWA 安装）
+npm run build    # Production build
+npm run preview  # Local preview of build results (suitable for testing PWA installation)
 ```
 
-生成 PWA 所需图标（依赖 `public/logo.png`）：
+Generate PWA required icons (depends on `public/logo.png`):
 
 ```bash
 npm run pwa:icons
